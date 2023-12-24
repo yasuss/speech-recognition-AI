@@ -1,0 +1,30 @@
+{
+  "presets": ["@babel/preset-react", "@babel/preset-typescript"],
+  "plugins": ["add-react-displayname", "@babel/plugin-transform-runtime"],
+  "env": {
+    "production": {
+      "plugins": ["@babel/plugin-transform-react-constant-elements"]
+    },
+    "development": {},
+    "test": {
+      "plugins": [
+        "@babel/plugin-transform-modules-commonjs",
+        [
+          "module-resolver",
+          {
+            "root": ["./src"],
+            "alias": {
+              "app": "app",
+              "public": "./public/",
+              "entities": "./src/entities/",
+              "features": "./src/features/",
+              "processes": "./src/processes/",
+              "pages": "./src/pages/",
+              "shared": "./src/shared/"
+            }
+          }
+        ]
+      ]
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+    "name": "lecture-notes",
+    "version": "0.1.0",
+    "scripts": {
+      "client": "cd frontend && npm start",
+      "server": "cd backend && nodemon main.ts",
+      "start": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
+      "container": "docker-compose up"
+    },
+    "dependencies": {},
+    "devDependencies": {}
+  }
