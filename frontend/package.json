@@ -1,7 +1,10 @@
 {
   "name": "lecture-notes-front",
   "version": "0.0.1",
+  "description": "",
   "main": "index.tsx",
+  "author": "Iaroslava Suspitsina",
+  "license": "UNLICENSED",
   "scripts": {
     "start": "npm run webpack:dev",
     "webpack:build": "NODE_ENV=development webpack --mode=development --config webpack.config.ts --progress",
@@ -12,7 +15,15 @@
     "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
     "@mui/material": "^5.15.1",
-    "react": "^18.2.0"
+    "axios": "^1.6.2",
+    "buffer": "^6.0.3",
+    "crypto-browserify": "^3.12.0",
+    "dotenv": "^16.3.1",
+    "fs": "^0.0.1-security",
+    "os-browserify": "^0.3.0",
+    "path-browserify": "^1.0.1",
+    "react": "^18.2.0",
+    "stream-browserify": "^3.0.0"
   },
   "devDependencies": {
     "@babel/plugin-transform-runtime": "^7.23.6",

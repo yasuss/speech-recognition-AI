@@ -15,6 +15,10 @@ module.exports = {
         plugins: [new TsconfigPathsPlugin({})],
         fallback: {
             buffer: require.resolve("buffer"),
+            crypto: require.resolve("crypto-browserify"),
+            os: require.resolve("os-browserify"),
+            path: require.resolve("path-browserify"),
+            stream: require.resolve("stream-browserify"),
         },
     },
     output: {
@@ -50,6 +54,9 @@ module.exports = {
         new webpack.HotModuleReplacementPlugin(),
         new MiniCssExtractPlugin({
             filename: "[name].css",
+        }),
+        new webpack.DefinePlugin({
+            "process.env.BUILD_TIMESTAMP": new Date().getTime(),
         }),
     ],
     devServer: {
