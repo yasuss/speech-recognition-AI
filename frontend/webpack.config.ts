@@ -2,6 +2,7 @@ import path from "path";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import TsconfigPathsPlugin from "tsconfig-paths-webpack-plugin";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
+import Dotenv from "dotenv-webpack";
 import webpack from "webpack";
 
 module.exports = {
@@ -13,13 +14,6 @@ module.exports = {
     resolve: {
         extensions: [".ts", ".tsx", ".js", ".jsx", ".mjs"],
         plugins: [new TsconfigPathsPlugin({})],
-        fallback: {
-            buffer: require.resolve("buffer"),
-            crypto: require.resolve("crypto-browserify"),
-            os: require.resolve("os-browserify"),
-            path: require.resolve("path-browserify"),
-            stream: require.resolve("stream-browserify"),
-        },
     },
     output: {
         filename: "app.js",
@@ -55,9 +49,7 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: "[name].css",
         }),
-        new webpack.DefinePlugin({
-            "process.env.BUILD_TIMESTAMP": new Date().getTime(),
-        }),
+        new Dotenv(),
     ],
     devServer: {
         client: {

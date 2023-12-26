@@ -1,9 +1,9 @@
-import React from "react";
+import React, { ChangeEvent } from "react";
 import { Input } from "@mui/material";
 import { fetchAudio } from "../api";
 
 export const UploadAudio = () => {
-    const handleChange = (e) => {
+    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
         const newFile = e?.target?.files?.[0];
 
         if (newFile) {

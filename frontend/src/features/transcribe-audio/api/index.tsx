@@ -1,9 +1,9 @@
 import axios from "axios";
 
-export const fetchAudio = async (file) => {
-    console.log("fetchAudio file", file);
+export const fetchAudio = async (file: File) => {
     if (!file) return;
 
+    const deepgramKey = process?.env["DEEPGRAM_SECRET"];
     const formData = new FormData();
     formData.append("file", file);
 
@@ -14,7 +14,7 @@ export const fetchAudio = async (file) => {
             {
                 headers: {
                     "Content-Type": "application/x-www-form-urlencoded",
-                    Authorization: `Token ${process.env.REACT_APP_DEEPGRAM_SECRET}`,
+                    Authorization: `Token ${deepgramKey}`,
                 },
                 params: {
                     smart_format: "true",
