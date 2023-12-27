@@ -1,8 +1,10 @@
 import React, { ChangeEvent, useState } from "react";
-import { Input } from "@mui/material";
+import { Divider, Input, Skeleton } from "@mui/material";
 import { transcribeAudioToJSON } from "../api";
+import * as Styled from "./styles";
 
-export const UploadAudio = () => {
+export const TranscribeAudioButton = () => {
+    const [isLoading, setIsLoading] = useState(false);
     const [audioJSON, setAudioJSON] = useState();
 
     const handleChange = async (e: ChangeEvent<HTMLInputElement>) => {
@@ -12,14 +14,18 @@ export const UploadAudio = () => {
             console.log("Something wrong with file");
         }
 
+        setIsLoading(true);
         const result = await transcribeAudioToJSON(newFile);
         setAudioJSON(result);
+        setIsLoading(false);
     };
 
     return (
-        <div>
+        <Styled.Container>
             <Input type='file' onChange={handleChange} />
+            <Divider />
+            {isLoading ? <Skeleton variant='rounded' height={100} /> : null}
             {audioJSON ? <div>{JSON.stringify(audioJSON)}</div> : null}
-        </div>
+        </Styled.Container>
     );
 };

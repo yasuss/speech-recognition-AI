@@ -1,14 +1,14 @@
 import React from "react";
 import "./index.css";
-import { LogoName } from "entities/logo-name";
-import { UploadAudio } from "features/transcribe-audio-button";
+import { Header } from "widgets/header";
+import { Main } from "pages/main";
 
 export const App = () => {
     return (
         <div>
-            <LogoName />
+            <Header />
 
-            <UploadAudio />
+            <Main />
         </div>
     );
 };
