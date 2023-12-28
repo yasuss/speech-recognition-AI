@@ -1,4 +1,10 @@
 body {
     font-family: "PT Sans", sans-serif;
+    color: var(--secondary-color);
     margin: 0;
+}
+
+:root {
+    --accent-color: #469369;
+    --secondary-color: #4f4e4e;
 }

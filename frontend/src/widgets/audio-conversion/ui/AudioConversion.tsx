@@ -13,6 +13,7 @@ export const AudioConversion = () => {
     return (
         <Styled.Container>
             <UploadButton setFile={setFile} />
+
             {file ? (
                 <TranscribeAudioButton
                     file={file}
@@ -20,9 +21,11 @@ export const AudioConversion = () => {
                     setLoading={setLoading}
                 />
             ) : null}
+
             <Divider />
+
             {isLoading ? (
-                <Skeleton height={200} />
+                <Skeleton variant='rounded' height={200} />
             ) : (
                 <ParsedJson json={convertedAudio} />
             )}

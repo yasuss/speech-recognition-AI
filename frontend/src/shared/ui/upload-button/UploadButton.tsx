@@ -1,5 +1,6 @@
-import { Input } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
+import { Button } from "@mui/material";
+import * as Styled from "./UploadButton.styles";
 
 interface UploadButtonProps {
     setFile: (file: File) => void;
@@ -7,6 +8,9 @@ interface UploadButtonProps {
 
 export const UploadButton: React.FC<UploadButtonProps> = (props) => {
     const { setFile } = props;
+
+    const [fileName, setFileName] = useState<string | undefined>();
+
     const handleChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
         const newFile = e?.target?.files?.[0];
 
@@ -15,8 +19,18 @@ export const UploadButton: React.FC<UploadButtonProps> = (props) => {
             return;
         }
 
+        setFileName(newFile.name);
         setFile(newFile);
     };
 
-    return <Input type='file' onChange={handleChange} />;
+    return (
+        <Styled.Container>
+            <Button variant='contained' component='label'>
+                Choose file
+                <input hidden type='file' onChange={handleChange} />
+            </Button>
+
+            <span>{fileName ? fileName : "No file chosen"}</span>
+        </Styled.Container>
+    );
 };
