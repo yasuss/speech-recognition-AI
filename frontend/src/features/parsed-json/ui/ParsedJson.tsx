@@ -2,17 +2,17 @@ import React from "react";
 import { ParsedNotes } from "shared/types/parsed-notes";
 
 interface ParsedJsonProps {
-    json: ParsedNotes;
+    notes?: ParsedNotes;
 }
 
 export const ParsedJson: React.FC<ParsedJsonProps> = (props) => {
-    const { json } = props;
+    const { notes } = props;
 
-    if (!json) return;
+    if (!notes) return;
 
     return (
         <div>
-            {json?.notes?.map((el) => {
+            {notes?.notes?.map((el) => {
                 return (
                     <div>
                         <h3>{el.headline}</h3>

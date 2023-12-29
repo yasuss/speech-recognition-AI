@@ -1,13 +1,16 @@
 import { Divider, Skeleton } from "@mui/material";
 import React, { useState } from "react";
 import { ParsedJson } from "features/parsed-json";
-import { TranscribeAudioButton } from "features/transcribe-audio-button";
+import { TranscribeAudio } from "features/transcribe-audio";
 import { UploadButton } from "shared/ui/upload-button";
 import * as Styled from "./AudioConversion.styles";
+import { ParsedNotes } from "shared/types/parsed-notes";
 
 export const AudioConversion = () => {
     const [file, setFile] = useState<File | undefined>();
-    const [convertedAudio, setConvertedAudio] = useState<JSON | undefined>();
+    const [convertedAudio, setConvertedAudio] = useState<
+        ParsedNotes | undefined
+    >();
     const [isLoading, setLoading] = useState(false);
 
     return (
@@ -15,7 +18,7 @@ export const AudioConversion = () => {
             <UploadButton setFile={setFile} />
 
             {file ? (
-                <TranscribeAudioButton
+                <TranscribeAudio
                     file={file}
                     setResult={setConvertedAudio}
                     setLoading={setLoading}
@@ -27,7 +30,7 @@ export const AudioConversion = () => {
             {isLoading ? (
                 <Skeleton variant='rounded' height={200} />
             ) : (
-                <ParsedJson json={convertedAudio} />
+                <ParsedJson notes={convertedAudio} />
             )}
         </Styled.Container>
     );

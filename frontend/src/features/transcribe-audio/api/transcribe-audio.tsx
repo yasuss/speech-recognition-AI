@@ -1,34 +1,35 @@
 import axios from "axios";
 
-export const fetchAudioDeepgram = async (file: File) => {
-    const deepgramKey = process?.env["DEEPGRAM_SECRET"];
-    const formData = new FormData();
-    formData.append("file", file);
+const openAiKey = process?.env["OPEN_AI_API_KEY"];
 
-    axios
-        .post(
-            "https://api.deepgram.com/v1/listen?filler_words=false&summarize=v2",
-            formData,
-            {
-                headers: {
-                    "Content-Type": "application/x-www-form-urlencoded",
-                    Authorization: `Token ${deepgramKey}`,
-                },
-                params: {
-                    smart_format: "true",
-                    model: "nova-2",
-                    language: "en-US",
-                },
-            },
-        )
-        .then((response) => {
-            console.log("response", response);
-        })
-        .catch((err) => console.error("err", err));
-};
+// export const fetchAudioDeepgram = async (file: File) => {
+//     const deepgramKey = process?.env["DEEPGRAM_SECRET"];
+//     const formData = new FormData();
+//     formData.append("file", file);
+
+//     axios
+//         .post(
+//             "https://api.deepgram.com/v1/listen?filler_words=false&summarize=v2",
+//             formData,
+//             {
+//                 headers: {
+//                     "Content-Type": "application/x-www-form-urlencoded",
+//                     Authorization: `Token ${deepgramKey}`,
+//                 },
+//                 params: {
+//                     smart_format: "true",
+//                     model: "nova-2",
+//                     language: "en-US",
+//                 },
+//             },
+//         )
+//         .then((response) => {
+//             console.log("response", response);
+//         })
+//         .catch((err) => console.error("err", err));
+// };
 
 export const fetchAudioOpenAi = async (file: File) => {
-    const openAiKey = process?.env["OPEN_AI_SECRET"];
     const formData = new FormData();
     formData.append("file", file);
     formData.append("model", "whisper-1");
@@ -44,10 +45,8 @@ export const fetchAudioOpenAi = async (file: File) => {
         .catch((err) => console.error(err));
 };
 
-export const convertText = async (text: string) => {
-    const openAiKey = process?.env["OPEN_AI_SECRET"];
-
-    return axios
+export const convertText = async (text: string) =>
+    axios
         .post(
             "https://api.openai.com/v1/chat/completions",
             {
@@ -78,7 +77,6 @@ export const convertText = async (text: string) => {
                 : null,
         )
         .catch((err) => console.error(err));
-};
 
 export const transcribeAudioToJSON = async (file?: File) => {
     if (!file) return;
