@@ -1,13 +1,28 @@
 import React from "react";
+import { ParsedNotes } from "shared/types/parsed-notes";
 
-interface ParseJsonProps {
-    json?: JSON;
+interface ParsedJsonProps {
+    json: ParsedNotes;
 }
 
-export const ParsedJson: React.FC<ParseJsonProps> = (props) => {
+export const ParsedJson: React.FC<ParsedJsonProps> = (props) => {
     const { json } = props;
 
     if (!json) return;
 
-    return <div>{JSON.stringify(json)}</div>;
+    return (
+        <div>
+            {json?.notes?.map((el) => {
+                return (
+                    <div>
+                        <h3>{el.headline}</h3>
+
+                        {el.paragraphs.map((paragraph) => (
+                            <p>{paragraph}</p>
+                        ))}
+                    </div>
+                );
+            })}
+        </div>
+    );
 };

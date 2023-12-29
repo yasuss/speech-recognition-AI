@@ -56,11 +56,11 @@ export const convertText = async (text: string) => {
                 messages: [
                     {
                         role: "system",
-                        content: `Make JSON object with text by this type: [{"headline": "Text headline", "paragraphs": ["Text paragraph"]}]`,
+                        content: `Make JSON with array with text by this type: {"notes": [{"headline": "Text headline", "paragraphs": ["Text paragraph"]}, {"headline": "Text headline", "paragraphs": ["Text paragraph"]}]}`,
                     },
                     {
                         role: "user",
-                        content: `Summarize this text as very short lecture notes by students with headline: 
+                        content: `Summarize this text as very short lecture notes by students with array of headline and paragraphs: 
                     ${text}
                 `,
                     },
