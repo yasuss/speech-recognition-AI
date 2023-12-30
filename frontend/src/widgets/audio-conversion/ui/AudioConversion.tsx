@@ -5,6 +5,7 @@ import { TranscribeAudio } from "features/transcribe-audio";
 import { UploadButton } from "shared/ui/upload-button";
 import * as Styled from "./AudioConversion.styles";
 import { ParsedNotes } from "shared/types/parsed-notes";
+import { ExportNotion } from "features/export-notion";
 
 export const AudioConversion = () => {
     const [file, setFile] = useState<File | undefined>();
@@ -24,6 +25,8 @@ export const AudioConversion = () => {
                     setLoading={setLoading}
                 />
             ) : null}
+
+            {convertedAudio ? <ExportNotion notes={convertedAudio} /> : null}
 
             <Divider />
 

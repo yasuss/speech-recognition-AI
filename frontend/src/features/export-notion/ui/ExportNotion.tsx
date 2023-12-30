@@ -11,7 +11,7 @@ export const ExportNotion: React.FC<ExportNotionProps> = (props) => {
     const { notes } = props;
 
     const handleClick = () => {
-        createPage();
+        createPage(notes);
     };
 
     return <Button onClick={handleClick}>Export to notion</Button>;

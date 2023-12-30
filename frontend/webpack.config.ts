@@ -61,5 +61,13 @@ module.exports = {
         hot: true,
         open: false,
         static: path.resolve(__dirname, "build"),
+        proxy: {
+            ["/notion"]: {
+                target: `https://api.notion.com`,
+                router: () => `https://api.notion.com`,
+                changeOrigin: true,
+                pathRewrite: { "^/notion": "" },
+            },
+        },
     },
 };
