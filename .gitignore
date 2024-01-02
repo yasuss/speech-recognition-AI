@@ -1,7 +1,5 @@
 node_modules
 .DS_Store
 .env
-frontend/mocks
-frontend/node_modules
-frontend/build
-backend/node_modules
+mocks
+build

@@ -6,6 +6,23 @@ module.exports = {
     bracketSameLine: true,
     jsxSingleQuote: true,
     arrowParens: "always",
+    plugins: [require.resolve("@trivago/prettier-plugin-sort-imports")],
+    importOrder: [
+        "^react",
+        "@indriver/*",
+        "@^",
+        "<THIRD_PARTY_MODULES>",
+        "public/*",
+        "shared/*",
+        "entities/*",
+        "features/*",
+        "widgets/*",
+        "pages/*",
+        "app/*",
+        "^[./]",
+    ],
+    importOrderSeparation: true,
+    importOrderSortSpecifiers: true,
     overrides: [
         {
             files: ["*.js", "*.jsx"],
