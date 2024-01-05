@@ -3,7 +3,7 @@ import React from "react";
 import { ParsedNotes } from "shared/types/parsed-notes";
 
 interface ParsedJsonProps {
-    notes?: ParsedNotes;
+    notes?: ParsedNotes | null;
 }
 
 export const ParsedJson: React.FC<ParsedJsonProps> = (props) => {

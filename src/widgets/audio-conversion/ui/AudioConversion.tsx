@@ -14,18 +14,22 @@ import * as Styled from "./AudioConversion.styles";
 export const AudioConversion = () => {
     const [file, setFile] = useState<File | undefined>();
     const [convertedAudio, setConvertedAudio] = useState<
-        ParsedNotes | undefined
-    >();
+        ParsedNotes | null
+    >(null);
     const [isLoading, setLoading] = useState(false);
 
     return (
         <Styled.Container>
-            <UploadButton setFile={setFile} />
+            <UploadButton setFile={(file) => {
+                setFile(file);
+                setConvertedAudio(null);
+            }} />
 
             {file ? (
                 <TranscribeAudio
                     file={file}
                     setResult={setConvertedAudio}
+                    isLoading={isLoading}
                     setLoading={setLoading}
                 />
             ) : null}
