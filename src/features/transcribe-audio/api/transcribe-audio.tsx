@@ -1,5 +1,7 @@
 import axios from "axios";
 
+import { ProcessingProgressProps } from "shared/types/processing-progress";
+
 const openAiKey = process?.env["OPEN_AI_API_KEY"];
 
 export const fetchAudioOpenAi = async (file: File) => {
@@ -51,13 +53,20 @@ export const convertText = async (text: string) =>
         )
         .catch((err) => console.error(err));
 
-export const transcribeAudioToJSON = async (file?: File) => {
+export const transcribeAudioToJSON = async (
+    file?: File,
+    setLoading?: (value: ProcessingProgressProps) => void,
+) => {
+    const steps = 2;
+
     if (!file) return;
 
+    setLoading?.({ text: "Converting audio to text", currentStep: 0, steps });
     const text = await fetchAudioOpenAi(file);
 
     if (!text) return;
 
+    setLoading?.({ text: "Converting text to notes", currentStep: 1, steps });
     const processedText = await convertText(text);
 
     return processedText;

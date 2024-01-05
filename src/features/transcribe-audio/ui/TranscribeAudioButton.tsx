@@ -3,6 +3,7 @@ import React from "react";
 import LoadingButton from "@mui/lab/LoadingButton";
 
 import { ParsedNotes } from "shared/types/parsed-notes";
+import { ProcessingProgressProps } from "shared/types/processing-progress";
 
 import { transcribeAudioToJSON } from "../api/transcribe-audio";
 
@@ -10,7 +11,7 @@ interface TranscribeAudioButtonProps {
     file: File;
     setResult: (notes: ParsedNotes) => void;
     isLoading: boolean;
-    setLoading: (state: boolean) => void;
+    setLoading: (state: ProcessingProgressProps | null) => void;
 }
 
 export const TranscribeAudio: React.FC<TranscribeAudioButtonProps> = (
@@ -19,11 +20,10 @@ export const TranscribeAudio: React.FC<TranscribeAudioButtonProps> = (
     const { file, setResult, isLoading, setLoading } = props;
 
     const handleClick = async () => {
-        setLoading(true);
-        const result = await transcribeAudioToJSON(file);
-        
+        const result = await transcribeAudioToJSON(file, setLoading);
+
+        setLoading(null);
         setResult(result);
-        setLoading(false);
     };
 
     return (
