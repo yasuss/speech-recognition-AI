@@ -2,7 +2,7 @@
 
 Lecture Notes, based on Whisper and ChatGPT, easily converts audio into text for notes. Seamless integration with Notion makes it an indispensable assistant for streamlined note taking and organised documentation.
 
-![image](https://github.com/yasuss/lecture-notes/assets/39710172/b9e59bf8-cc6a-49d7-9dec-409285989c43)
+![image](https://github.com/yasuss/lecture-notes/assets/39710172/8b737287-a51e-4b02-b579-e2b348d55632)
 
 
 ## Installation 
