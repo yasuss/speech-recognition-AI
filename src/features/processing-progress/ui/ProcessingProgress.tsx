@@ -1,9 +1,6 @@
 import React from "react";
-
 import { LinearProgress } from "@mui/material";
-
 import { ProcessingProgressProps } from "shared/types/processing-progress";
-
 import * as Styled from "./ProcessingProgress.styles";
 
 export const ProcessingProgress: React.FC<ProcessingProgressProps> = (

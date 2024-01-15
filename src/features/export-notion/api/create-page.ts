@@ -1,5 +1,4 @@
 import axios from "axios";
-
 import { ParsedNotes } from "shared/types/parsed-notes";
 
 const parseNotesToNotion = (notes: ParsedNotes) => {

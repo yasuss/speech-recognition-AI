@@ -1,5 +1,4 @@
 import axios from "axios";
-
 import { ProcessingProgressProps } from "shared/types/processing-progress";
 
 const openAiKey = process?.env["OPEN_AI_API_KEY"];

@@ -21,7 +21,6 @@ module.exports = {
         "app/*",
         "^[./]",
     ],
-    importOrderSeparation: true,
     importOrderSortSpecifiers: true,
     overrides: [
         {

@@ -1,11 +1,8 @@
 import React from "react";
-
 import { ThemeProvider, createTheme } from "@mui/material/styles";
-
+import { SnackbarContextProvider } from "shared/store/snackbar";
 import { Header } from "widgets/header";
-
 import { Main } from "pages/main";
-
 import "./index.css";
 
 const theme = createTheme({
@@ -22,8 +19,10 @@ const theme = createTheme({
 export const App = () => {
     return (
         <ThemeProvider theme={theme}>
-            <Header />
-            <Main />
+            <SnackbarContextProvider>
+                <Header />
+                <Main />
+            </SnackbarContextProvider>
         </ThemeProvider>
     );
 };

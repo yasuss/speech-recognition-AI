@@ -1,7 +1,5 @@
 import React from "react";
-
 import { Logo } from "shared/ui/logo";
-
 import * as Styled from "./LogoName.styles";
 
 export const LogoName = () => {

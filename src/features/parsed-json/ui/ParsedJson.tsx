@@ -1,5 +1,4 @@
 import React from "react";
-
 import { ParsedNotes } from "shared/types/parsed-notes";
 
 interface ParsedJsonProps {

@@ -1,5 +1,4 @@
 import React from "react";
-
 import { ReactComponent as LogoIcon } from "public/assets/logo.svg";
 
 interface LogoProps {

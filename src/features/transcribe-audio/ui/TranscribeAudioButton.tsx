@@ -1,10 +1,7 @@
 import React from "react";
-
 import LoadingButton from "@mui/lab/LoadingButton";
-
 import { ParsedNotes } from "shared/types/parsed-notes";
 import { ProcessingProgressProps } from "shared/types/processing-progress";
-
 import { transcribeAudioToJSON } from "../api/transcribe-audio";
 
 interface TranscribeAudioButtonProps {

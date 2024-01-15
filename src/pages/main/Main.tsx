@@ -1,7 +1,5 @@
 import React from "react";
-
 import { AudioConversion } from "widgets/audio-conversion";
-
 import * as Styled from "./Main.styles";
 
 export const Main = () => {

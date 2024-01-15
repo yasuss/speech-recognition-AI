@@ -1,16 +1,12 @@
 import React, { useState } from "react";
-
 import { Divider } from "@mui/material";
-
 import { ParsedNotes } from "shared/types/parsed-notes";
 import { ProcessingProgressProps } from "shared/types/processing-progress";
 import { UploadButton } from "shared/ui/upload-button";
-
 import { ExportNotion } from "features/export-notion";
 import { ParsedJson } from "features/parsed-json";
 import { ProcessingProgress } from "features/processing-progress";
 import { TranscribeAudio } from "features/transcribe-audio";
-
 import * as Styled from "./AudioConversion.styles";
 
 export const AudioConversion = () => {

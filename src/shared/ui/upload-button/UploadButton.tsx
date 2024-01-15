@@ -1,7 +1,5 @@
 import React, { useState } from "react";
-
 import { Button } from "@mui/material";
-
 import * as Styled from "./UploadButton.styles";
 
 interface UploadButtonProps {
