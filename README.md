@@ -18,7 +18,9 @@ npm i
 Add env paramas in .env file based on .env.example.
 
 OPEN_AI_SECRET - it's your integration key in openai
+
 NOTION_API_KEY - it's your integration key in Notion
+
 NOTION_DATABASE_ID - it's an id of page in Notion, because you can't create a new page without parent page by API
 
 ```
